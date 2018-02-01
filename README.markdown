@@ -50,24 +50,24 @@ with various `deps` middleware options.
 
     boot [options] test
 
- options         | deps | extra-deps
------------------|------|-----------
- <none>          | fail | fail
- deps test       | fail | fail
- deps -B         |  ok  | fail
- deps -A test    | fail |  ok
- deps -B -A test |  ok  |  ok
+ options         | `deps` | `extra-deps`
+-----------------|:------:|:-----------:
+ <none>          | fail   | fail
+ deps test       | fail   | fail
+ deps -B         |  ok    | fail
+ deps -A test    | fail   | fail
+ deps -B -A test |  ok    |  ok
 
 
     boot [options] alt-test
 
- options         | deps | extra-deps
------------------|------|-----------
- <none>          | fail | fail
- deps test       | fail | fail
- deps -B         |  Ex  |  Ex
- deps -A test    | fail | fail
- deps -B -A test |  Ex  |  Ex
+ options         | `deps` | `extra-deps`
+-----------------|:------:|:-----------:
+ <none>          | fail   | fail
+ deps test       | fail   | fail
+ deps -B         |  Ex    |  Ex
+ deps -A test    | fail   | fail
+ deps -B -A test |  Ex    |  Ex
 
 Using `-B` (`--overwrite-boot-deps`) with `alt-test` raises
 
