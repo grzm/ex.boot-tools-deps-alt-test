@@ -50,28 +50,31 @@ with various `deps` middleware options.
 
     boot [options] test
 
- options         | `deps` | `extra-deps`
------------------|:------:|:-----------:
- <none>          | fail   | fail
- deps test       | fail   | fail
- deps -B         |  ok    | fail
- deps -A test    | fail   | fail
- deps -B -A test |  ok    |  ok
+ options           | `:deps` | `:extra-deps`
+-------------------|:-------:|:-----------:
+ *none*            | fail    | fail
+ `deps test`       | fail    | fail
+ `deps -B`         |  ok     | fail
+ `deps -A test`    | fail    | fail
+ `deps -B -A test` |  ok     |  ok
 
 
     boot [options] alt-test
 
- options         | `deps` | `extra-deps`
------------------|:------:|:-----------:
- <none>          | fail   | fail
- deps test       | fail   | fail
- deps -B         |  Ex    |  Ex
- deps -A test    | fail   | fail
- deps -B -A test |  Ex    |  Ex
+ options           | `:deps` | `:extra-deps`
+-------------------|:-------:|:-----------:
+ *none*            | fail    | fail
+ `deps test`       | fail    | fail
+ `deps -B`         | Error   | Error
+ `deps -A test`    | fail    | fail
+ `deps -B -A test` | Error   | Error
 
 Using `-B` (`--overwrite-boot-deps`) with `alt-test` raises
 
-    java.io.FileNotFoundException: Could not locate metosin/boot_alt_test/impl__init.class or metosin/boot_alt_test/impl.clj on classpath. Please check that namespaces with dashes use underscores in the Clojure file name.
+> java.io.FileNotFoundException: Could not locate
+> metosin/boot_alt_test/impl__init.class or
+> metosin/boot_alt_test/impl.clj on classpath. Please check that
+> namespaces with dashes use underscores in the Clojure file name.
 
 ## License
 
