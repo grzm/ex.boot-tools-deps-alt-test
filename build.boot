@@ -7,7 +7,7 @@
                             [adzerk/boot-test "RELEASE" :scope "test"]
                             [metosin/boot-alt-test "0.3.2" :scope "test"]
                             [com.stuartsierra/dependency "0.2.0"]
-                            [seancorfield/boot-tools-deps "0.2.3"]])
+                            [seancorfield/boot-tools-deps "0.3.0"]])
 
 (task-options!
  pom {:project     project
