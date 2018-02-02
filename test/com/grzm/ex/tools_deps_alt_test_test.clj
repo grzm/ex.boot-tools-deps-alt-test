@@ -10,7 +10,9 @@
       false)))
 
 (deftest test-requires
-  (testing "default deps"
+  (testing ":dependencies"
+    (is (require? 'com.stuartsierra.dependency)))
+  (testing ":deps"
     (is (require? 'clojure.java.jdbc)))
-  (testing "extra-deps"
-    (is (require? 'clojure.test.check))))
+  (testing ":extra-deps"
+    (is (require? 'clojure.math.combinatorics))))
