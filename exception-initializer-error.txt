@@ -1,0 +1,94 @@
+λ boot deps -Q test
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by dynapath.defaults$fn__1516$fn__1517 (file:/Users/grzm/.m2/repository/boot/pod/2.7.2/pod-2.7.2.jar) to method java.net.URLClassLoader.addURL(java.net.URL)
+WARNING: Please consider reporting this to the maintainers of dynapath.defaults$fn__1516$fn__1517
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/Users/grzm/.m2/repository/org/slf4j/slf4j-nop/1.6.2/slf4j-nop-1.6.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/grzm/.m2/repository/ch/qos/logback/logback-classic/1.0.12/logback-classic-1.0.12.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+
+Testing com.grzm.ex.tools-deps-alt-test
+
+Testing com.grzm.ex.tools-deps-alt-test-test
+
+FAIL in (test-requires) (tools_deps_alt_test_test.clj:18)
+:extra-deps
+expected: (require? 'clojure.math.combinatorics)
+  actual: (not (require? clojure.math.combinatorics))
+
+Ran 1 tests containing 3 assertions.
+1 failures, 0 errors.
+                              java.lang.Thread.run              Thread.java:  844
+java.util.concurrent.ThreadPoolExecutor$Worker.run  Exception in thread "Thread-19" java.lang.ExceptionInInitializerError
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:375)
+	at clojure.lang.RT.classForName(RT.java:2204)
+	at clojure.lang.RT.classForName(RT.java:2213)
+	at clojure.lang.RT.loadClassForName(RT.java:2232)
+	at clojure.lang.RT.load(RT.java:450)
+	at clojure.lang.RT.load(RT.java:426)
+	at clojure.lang.RT.doInit(RT.java:468)
+	at clojure.lang.RT.<clinit>(RT.java:336)
+	at org.projectodd.shimdandy.impl.ClojureRuntimeShimImpl.init(ClojureRuntimeShimImpl.java:23)
+	at org.projectodd.shimdandy.ClojureRuntimeShim.newRuntime(ClojureRuntimeShim.java:26)
+	at org.projectodd.shimdandy.ClojureRuntimeShim.newRuntime(ClojureRuntimeShim.java:32)
+	at boot.App.newShim(App.java:309)
+	at boot.pod$make_pod.doInvoke(pod.clj:895)
+	at clojure.lang.RestFn.invoke(RestFn.java:410)
+	at boot.pod$pod_pool$fn__1867.invoke(pod.clj:960)
+	at boot.pod$lifecycle_pool$fill__1810.invoke(pod.clj:822)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+Caused by: java.io.IOException: Stream closed, compiling:(clojure/core_instant18.clj:15:1)
+	at clojure.lang.Compiler.load(Compiler.java:7526)
+	at clojure.lang.RT.loadResourceScript(RT.java:379)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.load(RT.java:460)
+	at clojure.lang.RT.load(RT.java:426)
+	at clojure.core$load$fn__6548.invoke(core.clj:6046)
+	at clojure.core$load.invokeStatic(core.clj:6045)
+	at clojure.core$load.doInvoke(core.clj:6029)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$fn__8055.invokeStatic(core.clj:6709)
+	at clojure.core$fn__8055.invoke(core.clj:6708)
+	at clojure.core__init.load(Unknown Source)
+	at clojure.core__init.<clinit>(Unknown Source)
+	... 19 more
+Caused by: java.io.IOException: Stream closed
+	at java.base/java.util.zip.InflaterInputStream.ensureOpen(InflaterInputStream.java:68)
+	at java.base/java.util.zip.InflaterInputStream.read(InflaterInputStream.java:143)
+	at java.base/java.io.FilterInputStream.read(FilterInputStream.java:133)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:185)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.base/java.io.BufferedReader.read(BufferedReader.java:182)
+	at java.base/java.io.LineNumberReader.read(LineNumberReader.java:126)
+	at java.base/java.io.FilterReader.read(FilterReader.java:65)
+	at java.base/java.io.PushbackReader.read(PushbackReader.java:90)
+	at clojure.lang.LineNumberingPushbackReader.read(LineNumberingPushbackReader.java:66)
+	at clojure.lang.LispReader.read1(LispReader.java:160)
+	at clojure.lang.Compiler.consumeWhitespaces(Compiler.java:7467)
+	at clojure.lang.Compiler.load(Compiler.java:7511)
+	... 31 more
+ThreadPoolExecutor.java:  641
+ java.util.concurrent.ThreadPoolExecutor.runWorker  ThreadPoolExecutor.java: 1167
+               java.util.concurrent.FutureTask.run          FutureTask.java:  264
+                                               ...
+               clojure.core/binding-conveyor-fn/fn                 core.clj: 2022
+                                 boot.core/boot/fn                 core.clj: 1031
+                               boot.core/run-tasks                 core.clj: 1021
+                 adzerk.boot-test/eval253/fn/fn/fn            boot_test.clj:  105
+                 adzerk.boot-test/eval318/fn/fn/fn            boot_test.clj:  184
+                              clojure.core/ex-info                 core.clj: 4739
+clojure.lang.ExceptionInfo: Some tests failed or errored
+    error: 0
+     fail: 1
+     pass: 2
+     test: 1
+     type: :summary
+clojure.lang.ExceptionInfo: Some tests failed or errored
+    line: 35
